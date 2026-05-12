@@ -372,7 +372,6 @@
             margin-bottom: 20px;
         }
 
-        /* Formulario */
         .form-section {
             background: linear-gradient(135deg, #0A1F25, #031015);
             border-radius: 60px;
@@ -625,7 +624,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <div class="container">
-    <!-- CARRUSEL DE BENEFICIOS mejorado con los nuevos textos -->
+    <!-- CARRUSEL -->
     <div class="carousel-section" id="beneficios" data-aos="fade-up">
         <h2 style="font-size: 2.8rem; text-align: center; margin-bottom: 20px;">Beneficios exclusivos</h2>
         <p style="text-align: center; margin-bottom: 40px;">Tecnología de punta para tu vehículo</p>
@@ -735,7 +734,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
 
-    <!-- SECCIÓN ESPECIAL: SEGUROS PARA ESPEJOS Y RINES + PELÍCULAS ANTIRROBO -->
+    <!-- SECCIÓNES -->
     <div id="seguridad" class="security-section" data-aos="fade-up">
         <h2 style="font-size: 2.8rem; text-align: center;">🛡️ PROTEGE LO QUE MÁS TE CUESTA</h2>
         <p style="text-align: center; margin-bottom: 20px;">Seguridad adicional · Disuasivo · Tranquilidad total</p>
@@ -768,7 +767,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
 
-    <!-- FORMULARIO DE PERITAJE -->
+    <!-- FORMULARIO -->
     <div class="form-section" id="peritaje" data-aos="fade-up">
         <h2 style="text-align: center; margin-bottom: 30px;"><i class="fas fa-calendar-check"></i> Agenda tu cita gratis</h2>
         <p style="text-align: center; margin-bottom: 30px;">Evaluamos y te asesoramos con el mejor polarizado o sistema de seguridad.</p>
@@ -867,12 +866,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     // Forzar actualización del mapa
     setTimeout(() => { if(map) map.invalidateSize(); }, 200);
     window.addEventListener('resize', () => { if(map) map.invalidateSize(); });
-    
-    // INICIALIZAR EMAILJS - ¡DEBES CAMBIAR ESTOS VALORES!
-    // Regístrate en https://www.emailjs.com/ y obtén tus credenciales
-    emailjs.init("TU_PUBLIC_KEY_DE_EMAILJS"); // <--- CAMBIA ESTO
-    
-    // Función de rastreo de conversión para Google Ads (opcional)
+
     function gtag_report_conversion(url) {
         if(typeof gtag !== 'undefined') {
             gtag('event', 'conversion', {
@@ -883,7 +877,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         return false;
     }
     
-    // Configurar eventos de WhatsApp para tracking
     const whatsappLinks = document.querySelectorAll('#whatsappCta, #whatsappContacto, #whatsappFlotante, a[href*="wa.me"]');
     whatsappLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -895,11 +888,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
     });
     
-    // Manejo del formulario con EmailJS
     document.getElementById('appointmentForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Recoger datos del formulario
         const formData = {
             nombre: document.getElementById('nombre').value,
             telefono: document.getElementById('telefono').value,
@@ -910,13 +901,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             mensaje: document.getElementById('mensaje').value
         };
         
-        // Enviar usando EmailJS - ¡DEBES CAMBIAR SERVICE_ID Y TEMPLATE_ID!
+        // Enviar usando EmailJS
         emailjs.send('TU_SERVICE_ID', 'TU_TEMPLATE_ID', formData)
             .then(function(response) {
-                document.getElementById('formMessage').innerHTML = '<div class="success-message">✅ ¡Cita agendada exitosamente! Te contactaremos en las próximas 24 horas.</div>';
+                document.getElementById('formMessage').innerHTML = '<div class="success-message"> ¡Cita agendada exitosamente! Te contactaremos en las próximas 24 horas.</div>';
                 document.getElementById('appointmentForm').reset();
                 
-                // Registrar conversión en Google Ads si está disponible
                 if(typeof gtag !== 'undefined') {
                     gtag('event', 'conversion', {
                         'send_to': 'AW-6743115505/formulario_conversion'
