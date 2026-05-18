@@ -1,1 +1,788 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Polarizados profesionales en Bogotá. Nano Carbón, Nano Cerámica HD, Ultra Cerámica SPECTRA. Protección UV 100%, garantía hasta 15 años. Seguros antirrobo para espejos y rines. Peritaje gratis a domicilio.">
+    <meta name="keywords" content="polarizados, polarizados para carros, nano cerámica, ultra cerámica spectra, seguridad espejos, antirrobo, polarizados Bogotá, Siete de agosto, garantía polarizados, peritaje gratis">
+    <meta name="author" content="Polarizados Jireth">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://polarizadosjireth.com/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Polarizados Jireth | Protección UV · Seguridad · Garantía 15 años">
+    <meta property="og:description" content="Polarizados profesionales en Bogotá. Nano Carbón, Nano Cerámica HD, Ultra Cerámica SPECTRA. Peritaje gratis a domicilio.">
+    <meta property="og:image" content="https://polarizadosjireth.com/Logo.png">
+    <meta property="og:url" content="https://polarizadosjireth.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <title>Polarizados Jireth | Protección UV · Seguridad · Garantía 15 años | Bogotá</title>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PM3RLXZ6');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Google Fonts Profesionales: Inter + SF Mono (alternativa robusta) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Inter', 'SF Mono', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0A0F0E 0%, #051B1A 50%, #0A1A2E 100%);
+            color: #E8F4F0;
+            overflow-x: hidden;
+            line-height: 1.4;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A1A1F;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #00FFD1, #00A8FF);
+            border-radius: 10px;
+        }
+
+        .glass-nav {
+            background: rgba(5, 15, 18, 0.9);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 255, 209, 0.3);
+            padding: 12px 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* responsive padding */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 500px;
+            height:65px;
+            object-fit: contain;
+            border-radius: 30px;
+            display: block;
+        }
+
+        /* ocultamos texto del logo */
+        .logo-text {
+            display: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #B8F2E6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 0.95rem;
+            letter-spacing: -0.2px;
+        }
+
+        .nav-links a:hover {
+            color: #00FFD1;
+            text-shadow: 0 0 8px rgba(0, 255, 209, 0.5);
+        }
+
+        .btn-primary {
+            background: linear-gradient(95deg, #00FFD1, #00A8FF);
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: 700;
+            color: #051B1A;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 255, 209, 0.4);
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            letter-spacing: -0.2px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 0 25px rgba(0, 255, 209, 0.7);
+        }
+
+        /* Hero Video */
+        .hero-video {
+            position: relative;
+            height: 85vh;
+            min-height: 520px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #heroVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(0.45) contrast(1.15);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.5));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 880px;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00FFD1, #00A8FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+                letter-spacing: -0.5px;
+            }
+            .hero-content p {
+                font-size: 1rem !important;
+            }
+            .nav-links {
+                gap: 16px;
+            }
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Carrusel */
+        .carousel-section {
+            margin: 60px 0 40px;
+            padding: 20px 0;
+        }
+
+        .swiper {
+            width: 100%;
+            padding: 20px 0 50px 0;
+        }
+
+        .swiper-slide {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 32px;
+            padding: 18px;
+            text-align: center;
+            border: 1px solid rgba(0, 255, 209, 0.3);
+            transition: all 0.3s;
+            height: auto;
+        }
+
+        .benefit-image {
+            width: 100%;
+            height: 220px;
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .benefit-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .swiper-slide:hover .benefit-image img {
+            transform: scale(1.05);
+        }
+
+        .benefit-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 10px 0 5px;
+            background: linear-gradient(135deg, #00FFD1, #00A8FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin: 50px 0;
+        }
+
+        .service-card {
+            background: rgba(10, 25, 30, 0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 36px;
+            padding: 28px;
+            border: 1px solid rgba(0, 255, 209, 0.2);
+            transition: all 0.4s;
+        }
+
+        .service-img {
+            width: 100%;
+            height: 220px;
+            border-radius: 28px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .price-container {
+            background: rgba(0, 20, 25, 0.6);
+            border-radius: 28px;
+            padding: 16px;
+            margin: 18px 0;
+            text-align: center;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 8px 4px;
+            border-bottom: 1px dashed rgba(0, 255, 209, 0.2);
+        }
+
+        .price-label {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #B8F2E6;
+        }
+
+        .price-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00FFD1, #00A8FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+            justify-content: center;
+        }
+
+        .badge {
+            background: rgba(0, 255, 209, 0.12);
+            border: 1px solid rgba(0, 255, 209, 0.3);
+            border-radius: 40px;
+            padding: 6px 16px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Seguridad */
+        .security-section {
+            margin: 60px 0;
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .security-card {
+            background: rgba(10, 25, 30, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 36px;
+            padding: 28px 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .security-icon {
+            font-size: 2.7rem;
+            color: #00FFD1;
+            margin-bottom: 18px;
+        }
+
+        /* Formulario */
+        .form-section {
+            background: linear-gradient(135deg, #0A1F25, #031015);
+            border-radius: 48px;
+            padding: 40px 32px;
+            margin: 60px 0;
+            border: 1px solid rgba(0, 255, 209, 0.3);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        input, select, textarea {
+            background: rgba(0, 30, 35, 0.85);
+            border: 1px solid rgba(0, 255, 209, 0.4);
+            padding: 12px 16px;
+            border-radius: 20px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+
+        label {
+            font-weight: 600;
+            color: #00FFD1;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+        }
+
+        /* Contacto y mapa */
+        .contact-map {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: linear-gradient(135deg, #0A1F25, #031015);
+            border-radius: 48px;
+            padding: 40px 32px;
+            margin: 60px 0;
+            border: 1px solid rgba(0, 255, 209, 0.2);
+        }
+
+        .info-col, .map-col {
+            flex: 1;
+            min-width: 240px;
+        }
+
+        #mapid {
+            height: 360px;
+            width: 100%;
+            border-radius: 32px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 255, 209, 0.4);
+            background: #1a2a2f;
+        }
+
+        /* Ajustes móviles: menos separación */
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            .contact-map {
+                flex-direction: column;
+                padding: 28px 20px;
+            }
+            .services-grid {
+                gap: 24px;
+            }
+            .service-card {
+                padding: 20px;
+            }
+            .price-value {
+                font-size: 1.3rem;
+            }
+            .hero-video {
+                height: 70vh;
+                min-height: 460px;
+            }
+            .carousel-section {
+                margin: 30px 0;
+            }
+            .security-grid {
+                gap: 20px;
+            }
+            .form-section {
+                padding: 30px 20px;
+            }
+            .btn-primary {
+                padding: 10px 22px;
+                font-size: 0.85rem;
+            }
+        }
+
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            padding: 12px 22px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-weight: 700;
+            z-index: 999;
+            text-decoration: none;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .whatsapp-btn i {
+            font-size: 1.3rem;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.03);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            background: rgba(0, 20, 25, 0.8);
+            border-top: 1px solid rgba(0, 255, 209, 0.2);
+            font-size: 0.85rem;
+        }
+
+        .success-message {
+            background: rgba(0, 255, 209, 0.2);
+            border: 1px solid #00FFD1;
+            padding: 14px;
+            border-radius: 28px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        hr {
+            border-color: rgba(0, 255, 209, 0.2);
+            margin: 35px 0;
+        }
+        .social-links {
+            display: flex;
+            gap: 22px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+        .social-links a {
+            color: #00FFD1;
+            font-size: 1.6rem;
+            transition: 0.2s;
+        }
+        .price-desde {
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            background: rgba(0,255,209,0.1);
+            display: inline-block;
+            border-radius: 30px;
+            padding: 2px 10px;
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM3RLXZ6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<nav class="glass-nav">
+    <div class="container nav-flex">
+        <div class="logo">
+            <img src="Logo.png" alt="Polarizados Jireth Logo" class="logo-img" onerror="this.src='https://placehold.co/200x200/0A1A2E/00FFD1?text=JIRETH'">
+            <!-- Texto oculto -->
+            <div class="logo-text"></div>
+        </div>
+        <div class="nav-links">
+            <a href="#servicios">Polarizados</a>
+            <a href="#seguridad">Seguridad</a>
+            <a href="#beneficios">Beneficios</a>
+            <a href="#peritaje">Agendar cita</a>
+            <a href="#ubicacion">Ubicación</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero con Video -->
+<section class="hero-video">
+    <video id="heroVideo" autoplay muted loop playsinline>
+        <source src="Polarizado.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content" data-aos="fade-up">
+        <h1>PROTECCIÓN · ESTILO · CONFORT</h1>
+        <p style="font-size: 1.2rem; margin: 16px 0 24px;">Nano Carbón · Nano Cerámica HD · Ultra Cerámica SPECTRA · Blindaje Antirrobo</p>
+        <a href="https://wa.me/573118554498" class="btn-primary" id="whatsappCta"><i class="fab fa-whatsapp"></i> Cotizar ahora</a>
+    </div>
+</section>
+
+<div class="container">
+    <!-- CARRUSEL BENEFICIOS -->
+    <div class="carousel-section" id="beneficios" data-aos="fade-up">
+        <h2 style="font-size: 2.3rem; text-align: center; margin-bottom: 12px;">Beneficios exclusivos</h2>
+        <p style="text-align: center; margin-bottom: 30px;">Tecnología de punta para tu vehículo</p>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><div class="benefit-image"><img src="carro.jpg" alt="Nano Carbón" onerror="this.src='https://placehold.co/600x400/0D262C/00FFD1?text=Nano+Carbón'"></div><div class="benefit-title">Nano Carbón</div><div class="benefit-desc">Reduce calor hasta 40% · Garantía 5 años</div></div>
+                <div class="swiper-slide"><div class="benefit-image"><img src="carro2.jpeg" alt="Nano Cerámica HD" onerror="this.src='https://placehold.co/600x400/0D262C/00FFD1?text=Nano+Cerámica'"></div><div class="benefit-title">Nano Cerámica HD</div><div class="benefit-desc">Bloqueo UV 100% · Garantía 10 años</div></div>
+                <div class="swiper-slide"><div class="benefit-image"><img src="carro3.webp" alt="Ultra Cerámica SPECTRA" onerror="this.src='https://placehold.co/600x400/0D262C/00FFD1?text=SPECTRA'"></div><div class="benefit-title">Ultra Cerámica SPECTRA</div><div class="benefit-desc">Máxima protección · 15 años garantía</div></div>
+                <div class="swiper-slide"><div class="benefit-image"><img src="carro4.jpg" alt="Seguridad" onerror="this.src='https://placehold.co/600x400/0D262C/00FFD1?text=Antirrobo'"></div><div class="benefit-title">Película Antirrobo</div><div class="benefit-desc">Hasta 12 micras · Disuasivo total</div></div>
+                <div class="swiper-slide"><div class="benefit-image"><img src="carro5.jpg" alt="Seguro Espejos" onerror="this.src='https://placehold.co/600x400/0D262C/00FFD1?text=Seguro+Espejos'"></div><div class="benefit-title">Seguro de Espejos</div><div class="benefit-desc">Acero reforzado · Antirrobo</div></div>
+                <div class="swiper-slide"><div class="benefit-image"><img src="carro6.jpg" alt="Garantía" onerror="this.src='https://placehold.co/600x400/0D262C/00FFD1?text=Garantía'"></div><div class="benefit-title">Garantía hasta 15 años</div><div class="benefit-desc">Respaldamos calidad por escrito</div></div>
+                <div class="swiper-slide"><div class="benefit-image"><img src="carro7.jpg" alt="Pago seguro" onerror="this.src='https://placehold.co/600x400/0D262C/00FFD1?text=Pagos'"></div><div class="benefit-title">Múltiples medios de pago</div><div class="benefit-desc">Efectivo, Nequi, Daviplata, Tarjetas</div></div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <!-- SERVICIOS PRINCIPALES -->
+    <h2 style="font-size: 2.5rem; text-align: center;" id="servicios" data-aos="fade-up">Nuestros Polarizados</h2>
+    <div class="services-grid">
+        <!-- NANO CARBÓN -->
+        <div class="service-card" data-aos="flip-left">
+            <div class="service-img"><img src="carro.jpg" alt="Nano Carbón" onerror="this.src='https://placehold.co/600x400/0D262C/00FFD1?text=Nano+Carbón'"></div>
+            <h3 style="text-align: center;"> NANO CARBÓN</h3>
+            <p style="text-align: center; margin-bottom: 10px;">Reduce sensación térmica 40% · Protección solar</p>
+            <div class="price-container">
+                <div class="price-desde" style="text-align:center;">DESDE</div>
+                <div class="price-item"><span class="price-label"><i class="fas fa-car"></i> Automóviles:</span><span class="price-value">$320.000</span></div>
+                <div class="price-item"><span class="price-label"><i class="fas fa-truck"></i> Camionetas / SUV:</span><span class="price-value">$370.000</span></div>
+            </div>
+            <div class="badge-group"><span class="badge">5 años garantía</span><span class="badge">-40% calor</span><span class="badge">UV protection</span></div>
+            <p style="margin-top: 15px; text-align: center;"><strong>+ Película seguridad:</strong> Auto $400.000 / Camioneta $450.000</p>
+            <div style="text-align: center;"><a href="https://wa.me/573118554498?text=Nano%20Carbón" class="btn-primary" style="margin-top: 20px;">Cotizar</a></div>
+        </div>
+        <!-- NANO CERÁMICA HD -->
+        <div class="service-card" data-aos="flip-left" data-aos-delay="100">
+            <div class="service-img"><img src="carro2.jpeg" alt="Nano Cerámica HD" onerror="this.src='https://placehold.co/600x400/0D262C/00FFD1?text=Nano+Cerámica+HD'"></div>
+            <h3 style="text-align: center;"> NANO CERÁMICA HD</h3>
+            <p style="text-align: center;">Bloqueo UV 100% · Privacidad total</p>
+            <div class="price-container">
+                <div class="price-desde" style="text-align:center;">DESDE</div>
+                <div class="price-item"><span class="price-label"><i class="fas fa-car"></i> Automóviles:</span><span class="price-value">$450.000</span></div>
+                <div class="price-item"><span class="price-label"><i class="fas fa-truck"></i> Camionetas / SUV:</span><span class="price-value">$500.000</span></div>
+            </div>
+            <div class="badge-group"><span class="badge">10 años garantía</span><span class="badge">100% UV</span><span class="badge">Alta visibilidad</span></div>
+            <p style="margin-top: 15px; text-align: center;"><strong>+ Película antirrobo:</strong> Auto $580.000 / Camioneta $630.000</p>
+            <div style="text-align: center;"><a href="https://wa.me/573118554498?text=Nano%20Seguro%20HD" class="btn-primary">Cotizar</a></div>
+        </div>
+        <!-- ULTRA CERÁMICA SPECTRA -->
+        <div class="service-card" data-aos="flip-left" data-aos-delay="200">
+            <div class="service-img"><img src="carro3.webp" alt="Ultra Cerámica SPECTRA" onerror="this.src='https://placehold.co/600x400/0D262C/00FFD1?text=SPECTRA'"></div>
+            <h3 style="text-align: center;"> ULTRA CERÁMICA SPECTRA</h3>
+            <p style="text-align: center;">Máxima protección solar · Antirreflejo</p>
+            <div class="price-container">
+                <div class="price-desde" style="text-align:center;">DESDE</div>
+                <div class="price-item"><span class="price-label"><i class="fas fa-car"></i> Automóviles:</span><span class="price-value">$580.000</span></div>
+                <div class="price-item"><span class="price-label"><i class="fas fa-truck"></i> Camionetas / SUV:</span><span class="price-value">$650.000</span></div>
+            </div>
+            <div class="badge-group"><span class="badge">⭐ 15 años</span><span class="badge">Antirreflejo</span><span class="badge">Premium</span></div>
+            <p style="margin-top: 15px; text-align: center;"><strong>+ Película antirrobo 6 micras:</strong> Auto $690.000 / Camioneta $760.000</p>
+            <div style="text-align: center;"><a href="https://wa.me/573118554498?text=Cerámica%20Ultra%20Spectra" class="btn-primary">Cotizar</a></div>
+        </div>
+    </div>
+
+    <!-- SEGURIDAD -->
+    <div id="seguridad" class="security-section" data-aos="fade-up">
+        <h2 style="font-size: 2.3rem; text-align: center;"> PROTEGE LO QUE MÁS TE CUESTA</h2>
+        <p style="text-align: center;">Seguridad adicional · Disuasivo · Tranquilidad total</p>
+        <div class="security-grid">
+            <div class="security-card"><div class="security-icon"><i class="fas fa-car-side"></i></div><h3>SEGURO DE ESPEJOS</h3><p>Dispositivo de acero reforzado que bloquea el espejo lateral.</p><div class="badge-group"><span class="badge">Acero reforzado</span><span class="badge">Cerradura seguridad</span></div><a href="https://wa.me/573118554498?text=Seguro%20de%20Espejos" class="btn-primary" style="margin-top: 20px;">Consultar</a></div>
+            <div class="security-card"><div class="security-icon"><i class="fas fa-shield-alt"></i></div><h3>SEGURO DE RINES</h3><p>Sistema antirrobo profesional para llantas. Tuercas de seguridad.</p><div class="badge-group"><span class="badge">Anti-extracción</span><span class="badge">Fácil instalación</span></div><a href="https://wa.me/573118554498?text=Seguro%20de%20Rines" class="btn-primary">Consultar</a></div>
+            <div class="security-card"><div class="security-icon"><i class="fas fa-lock"></i></div><h3>PELÍCULA ANTIRROBO</h3><p>Protección adicional para vidrios. Micras de alta resistencia.</p><div class="badge-group"><span class="badge">6 micras</span><span class="badge">12 micras</span></div><a href="https://wa.me/573118554498?text=Película%20Antirrobo" class="btn-primary">Consultar</a></div>
+        </div>
+        <hr>
+        <div style="text-align: center;"><p><i class="fas fa-info-circle"></i> <strong>Nota:</strong> Si tu vehículo tiene polarizado anterior, la retirada tiene costo adicional. ¡Cotiza sin compromiso!</p></div>
+    </div>
+
+    <!-- FORMULARIO -->
+    <div class="form-section" id="peritaje" data-aos="fade-up">
+        <h2 style="text-align: center;"><i class="fas fa-calendar-check"></i> Agenda tu cita gratis</h2>
+        <p style="text-align: center; margin: 10px 0 25px;">Evaluamos y te asesoramos con el mejor polarizado o sistema de seguridad.</p>
+        <form id="appointmentForm">
+            <div class="form-grid">
+                <div class="form-group"><label>Nombre completo</label><input type="text" id="nombre" required placeholder="Carlos Pérez"></div>
+                <div class="form-group"><label>Teléfono</label><input type="tel" id="telefono" required placeholder="3118554498"></div>
+                <div class="form-group"><label>Correo electrónico</label><input type="email" id="email" required placeholder="tucorreo@ejemplo.com"></div>
+                <div class="form-group"><label>Tipo de vehículo</label><select id="vehiculo"><option>Automóvil</option><option>Camioneta/SUV</option><option>Campero</option><option>Otro</option></select></div>
+                <div class="form-group"><label>Fecha preferida</label><input type="date" id="fecha" required></div>
+                <div class="form-group"><label>Hora preferida</label><input type="time" id="hora" required></div>
+                <div class="form-group full-width"><label>Mensaje adicional</label><textarea id="mensaje" rows="2" placeholder="¿Qué servicio te interesa?"></textarea></div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;"><button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Enviar Solicitud</button></div>
+            <div id="formMessage" style="margin-top: 20px;"></div>
+        </form>
+    </div>
+
+    <!-- MAPA Y CONTACTO -->
+    <div id="ubicacion" class="contact-map" data-aos="fade-up">
+        <div class="info-col">
+            <div id="mapid" style="height: 360px; width: 100%; border-radius: 32px;"></div>
+            <div style="margin-top: 22px; text-align: center;">
+                <p><i class="fas fa-location-dot" style="color:#00FFD1"></i> <strong>Dirección:</strong> Calle 64 # 27 a 39, Barrio Siete de agosto, Bogotá</p>
+                <p><i class="fas fa-clock"></i> <strong>Horario:</strong> Lunes a Sábado 9am - 6pm (con cita previa)</p>
+                <div class="badge-group" style="justify-content: center;"><span class="badge"><i class="fas fa-money-bill"></i> Efectivo</span><span class="badge"><i class="fas fa-mobile-alt"></i> Nequi / Daviplata</span><span class="badge"><i class="fas fa-credit-card"></i> Tarjetas +5%</span></div>
+                <div style="margin: 20px 0;"><a href="https://wa.me/573118554498" class="btn-primary" id="whatsappContacto"><i class="fab fa-whatsapp"></i> Chat directo</a></div>
+                <div class="social-links"><a href="https://www.instagram.com/polarizados.jireth" target="_blank"><i class="fab fa-instagram"></i></a><a href="https://www.facebook.com/polarizadosjireth" target="_blank"><i class="fab fa-facebook"></i></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p><strong>POLARIZADOS JIRETH</strong> · Nano Carbón · Nano Cerámica HD · Ultra Cerámica SPECTRA · Seguros de Espejos y Rines · Bogotá</p>
+    <p style="margin-top: 12px;">© 2025 · Protección, estilo y confort para tu vehículo · Calle 64 # 27 a 39, Barrio Siete de agosto</p>
+</footer>
+
+<a href="https://wa.me/573118554498" class="whatsapp-btn" id="whatsappFlotante"><i class="fab fa-whatsapp"></i><span>Cotizar ahora</span></a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    AOS.init({ once: false, mirror: true, duration: 800, offset: 60 });
+    
+    new Swiper('.mySwiper', { 
+        slidesPerView: 1, spaceBetween: 20, loop: true, autoplay: { delay: 4000, disableOnInteraction: false }, 
+        pagination: { el: '.swiper-pagination', clickable: true }, 
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }, 
+        breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 }, 1280: { slidesPerView: 4 } } 
+    });
+    
+    const heroVideo = document.getElementById('heroVideo');
+    if(heroVideo) {
+        window.addEventListener('scroll', () => { 
+            if(heroVideo && heroVideo.duration) { 
+                let percent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+                heroVideo.currentTime = Math.min(1, Math.max(0, percent)) * heroVideo.duration;
+            } 
+        });
+    }
+    
+    // Mapa con tiles que sí muestran gráficos y calles (CartoDB Voyager)
+    const map = L.map('mapid').setView([4.634946, -74.083030], 15);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; CartoDB',
+        subdomains: 'abcd',
+        maxZoom: 19
+    }).addTo(map);
+    
+    const customIcon = L.divIcon({ 
+        html: '<div style="background: linear-gradient(135deg, #00FFD1, #00A8FF); width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 18px cyan;"><i class="fas fa-bolt" style="color: #051B1A; font-size: 22px;"></i></div>', 
+        iconSize: [42,42], className: 'custom-map-icon' 
+    });
+    L.marker([4.634946, -74.083030], { icon: customIcon }).addTo(map).bindPopup("<b>Polarizados Jireth</b><br>Calle 64 # 27 a 39, Siete de agosto").openPopup();
+    
+    setTimeout(() => map.invalidateSize(), 250);
+    window.addEventListener('resize', () => map.invalidateSize());
+    
+    // EmailJS config (requiere credenciales reales, pero mantiene funcionalidad con alerta)
+    document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = {
+            nombre: document.getElementById('nombre').value,
+            telefono: document.getElementById('telefono').value,
+            email: document.getElementById('email').value,
+            vehiculo: document.getElementById('vehiculo').value,
+            fecha: document.getElementById('fecha').value,
+            hora: document.getElementById('hora').value,
+            mensaje: document.getElementById('mensaje').value
+        };
+        // Simulamos envio con EmailJS pero sin romper (se puede personalizar)
+        if(typeof emailjs !== 'undefined' && emailjs.send) {
+            emailjs.send('TU_SERVICE_ID', 'TU_TEMPLATE_ID', formData)
+            .then(() => { mostrarExito(); })
+            .catch(() => { mostrarError(); });
+        } else {
+            // Fallback: mostrar éxito demo
+            mostrarExito();
+        }
+        function mostrarExito() {
+            document.getElementById('formMessage').innerHTML = '<div class="success-message">✅ ¡Cita agendada! Te contactaremos en 24 horas.</div>';
+            document.getElementById('appointmentForm').reset();
+            if(typeof gtag !== 'undefined') gtag('event', 'conversion', { 'send_to': 'AW-6743115505/formulario_conversion' });
+            setTimeout(() => document.getElementById('formMessage').innerHTML = '', 5000);
+        }
+        function mostrarError() {
+            document.getElementById('formMessage').innerHTML = '<div class="success-message" style="background:rgba(255,0,0,0.2); border-color:#ff6666;">⚠️ Error temporal, escríbenos por WhatsApp.</div>';
+        }
+    });
+    
+    // conversiones WA
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+        link.addEventListener('click', () => { if(typeof gtag !== 'undefined') gtag('event', 'conversion', { 'send_to': 'AW-6743115505/whatsapp_conversion' }); });
+    });
+</script>
+</body>
+</html>
